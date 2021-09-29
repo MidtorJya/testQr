@@ -19,7 +19,7 @@
                         <td scope="row">{{ $surah->id }}</td>
                         <td>{{ $surah->name }}</td>
                         <td>
-                            <a class="btn btn-success" href="{{ route('ayat', $surah) }}">View</a>
+                            <a class="btn btn-success" href="{{ route('ayat', $surah) }}">{{$surah->name}}</a>
                         </td>
                     </tr>
                     @endforeach

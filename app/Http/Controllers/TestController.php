@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Surah;
+use App\Models\Ayat;
+use App\Models\Trans;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -24,7 +26,20 @@ class TestController extends Controller
     public function ayat($id)
     {
         $ayats = Surah::with('ayat.trans')->find($id);
-        dd($ayats->toArray());
+       // ->firstOrFail();
+
+       // $plucked = $ayats->pluck('ayat.text', 'trans.text');
+        
+        //dd($ayats->toArray());
+       // return dd($ayats);
+      
+       //return view('test.detail', [
+        //dd($ayats->toArray());
+        //'ayats' => $ayats]);
+       
+      return view('test.detail',compact('ayats'));
+        //    'ayats' => $ayats
+        //]);
     }
 
     /**

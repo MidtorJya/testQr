@@ -14,6 +14,7 @@ class CreateTransTable extends Migration
     public function up()
     {
         Schema::create('trans', function (Blueprint $table) {
+           
             $table->id();
             $table->string('text');
             $table->timestamps();
@@ -32,5 +33,6 @@ class CreateTransTable extends Migration
     public function down()
     {
         Schema::dropIfExists('trans');
+        
     }
 }
