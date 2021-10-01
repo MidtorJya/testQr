@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\QuranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,6 @@ Route::get('/', function () {
 Route::get('/test', [TestController::class, 'index']);
 Route::get('/ayat/{surah}', [TestController::class, 'ayat'])->name('ayat');
 
-
+Route::get('/quran', [QuranController::class, 'index']);
+Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
+Route::get('/quran/trans', [QuranController::class, 'translate']);
