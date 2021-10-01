@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Surah;
-use App\Models\Ayat;
-use App\Models\Trans;
 use Illuminate\Http\Request;
 
-class TestController extends Controller
+use App\Models\Arabic;
+use App\Models\Datasurah;
+use App\Models\Thai;
+
+
+class TeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,32 +18,39 @@ class TestController extends Controller
      */
     public function index()
     {
-        $surahs = Surah::paginate(10);
-
-        return view('test.index', [
-            'surahs' => $surahs
-        ]);
+        //
     }
 
-    public function ayat($id)
+    public function translate()
     {
-        $ayats = Surah::with('ayat.trans')->find($id);
+        
+            $datas = Thai::paginate(10);
+           //return dd($datas);
+            return view('test2.t', [
+                'datas' => $datas
+            ]);
+        
+    }
+
+    public function thais($id)
+    {
+        $thais = Arabic::find($id)->thais;
        // ->firstOrFail();
 
        // $plucked = $ayats->pluck('ayat.text', 'trans.text');
         
-        dd($ayats->toArray());
-       // return dd($ayats);
+        dd($thais->toArray());
+      
+        //return dd($arabics);
       
        //return view('test.detail', [
         //dd($ayats->toArray());
         //'ayats' => $ayats]);
        
-      return view('test.detail',compact('ayats'));
+      return view('test2.trans',compact('thais'));
         //    'ayats' => $ayats
         //]);
     }
-
     /**
      * Show the form for creating a new resource.
      *

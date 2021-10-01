@@ -20,7 +20,7 @@
                         <td scope="row">{{ $data->arabic_id}}</td>
                         <td>{{ $data->text }}</td>
                         <td>
-                            <a class="btn btn-success" >view</a>
+                        <a class="btn btn-success" href="{{ route('thais', $data) }}">view</a>
                         </td>
                     </tr>
                     @endforeach

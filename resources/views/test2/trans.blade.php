@@ -15,13 +15,13 @@
                     </tr>
                 </thead>
                 <tbody>
-              dd {{$arabics}}
-                   @foreach($arabics->arabic as $arabic )
+              dd {{$thais}}
+                   @foreach($thais->thai as $thai )
                    <tr>
-                   <td> {{$arabics->surah_name}}</td>
-                    <td> {{$arabic->ayat}}</td>
-                    <td> {{$arabic->text}}</td>
-                    <td> {{$arabic->thais->text}}</td>
+                   <td> {{$tahis->arabic_id}}</td>
+                    <td> {{$thai->ayat}}</td>
+                    <td> {{$thai->text}}</td>
+                  
                     
                    
                    </tr>
@@ -35,5 +35,8 @@
         </div>
     </div>
 </div>
+
+@endsection
+
 
 @endsection

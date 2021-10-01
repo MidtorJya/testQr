@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\QuranController;
+use App\Http\Controllers\TeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,6 @@ Route::get('/ayat/{surah}', [TestController::class, 'ayat'])->name('ayat');
 Route::get('/quran', [QuranController::class, 'index']);
 Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
 Route::get('/quran/trans', [QuranController::class, 'translate']);
+
+Route::get('/test2', [TeController::class, 'translate']);
+Route::get('/thais/{arabic}', [TeController::class, 'thais'])->name('thais');

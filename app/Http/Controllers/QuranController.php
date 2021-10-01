@@ -34,7 +34,7 @@ class QuranController extends Controller
 
        // $plucked = $ayats->pluck('ayat.text', 'trans.text');
         
-        //dd($ayats->toArray());
+        //dd($arabics->toArray());
       
         //return dd($arabics);
       
@@ -51,12 +51,32 @@ class QuranController extends Controller
     public function translate()
     {
         
-            $datas = Arabic::paginate(10);
-           return dd($datas);
+            $datas = Thai::paginate(10);
+           //return dd($datas);
             return view('quran.trans', [
                 'datas' => $datas
             ]);
         
+    }
+
+    public function trans($id)
+    {
+        $arabics = Arabic::find($id)->thais;
+       // ->firstOrFail();
+
+       // $plucked = $ayats->pluck('ayat.text', 'trans.text');
+        
+        dd($arabics->toArray());
+      
+        //return dd($arabics);
+      
+       //return view('test.detail', [
+        //dd($ayats->toArray());
+        //'ayats' => $ayats]);
+       
+      return view('quran.detail',compact('arabics'));
+        //    'ayats' => $ayats
+        //]);
     }
 
 
