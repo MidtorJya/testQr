@@ -14,13 +14,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    dd{{$datas}}
+             
                     @foreach ($datas as $data)
                     <tr>
-                        <td scope="row">{{ $data->arabic_id}}</td>
-                        <td>{{ $data->text }}</td>
+                        <td scope="row">{{ $data->id}}</td>
+                        <td>{{ $data->th_name }}</td>
                         <td>
-                        <a class="btn btn-success" href="{{ route('thais', $data) }}">view</a>
+                        <a class="btn btn-success" href="{{ route('arabic', $data) }}">view</a>
                         </td>
                     </tr>
                     @endforeach

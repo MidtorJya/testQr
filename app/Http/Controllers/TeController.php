@@ -24,32 +24,22 @@ class TeController extends Controller
     public function translate()
     {
         
-            $datas = Thai::paginate(10);
-           //return dd($datas);
+            $datas = Datasurah::paginate(10);
+          
             return view('test2.t', [
                 'datas' => $datas
             ]);
         
     }
 
-    public function thais($id)
-    {
-        $thais = Arabic::find($id)->thais;
-       // ->firstOrFail();
+    public function arabic($id)
 
-       // $plucked = $ayats->pluck('ayat.text', 'trans.text');
-        
-        dd($thais->toArray());
+    { 
+        $arabics = Datasurah::with('arabic.thais')->find($id);
       
-        //return dd($arabics);
-      
-       //return view('test.detail', [
-        //dd($ayats->toArray());
-        //'ayats' => $ayats]);
-       
-      return view('test2.trans',compact('thais'));
-        //    'ayats' => $ayats
-        //]);
+    //return dd($arabics);
+      return view('test2.trans',compact('arabics'));
+   
     }
     /**
      * Show the form for creating a new resource.

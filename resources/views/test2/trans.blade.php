@@ -8,20 +8,18 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>surah</th>
-                        <th>id</th>
-                        <th>Text</th>
-                        <th>Translation</th>
+                        <th>text</th>
+                        <th>tran</th>
+                    
                     </tr>
                 </thead>
                 <tbody>
-              dd {{$thais}}
-                   @foreach($thais->thai as $thai )
+             
+                   @foreach($arabics->arabic as $arabic )
                    <tr>
-                   <td> {{$tahis->th_name}}</td>
-                   <td> {{$tahis->arabic_id}}</td>
-                    <td> {{$thai->ayat}}</td>
-                    <td> {{$thai->text}}</td>
+                   <td> {{$arabic->text}}</td>
+                   <td> {{$arabic->thais->text}}</td>
+                  
                   
                     
                    
@@ -37,7 +35,7 @@
     </div>
 </div>
 
-@endsection
+
 
 
 @endsection

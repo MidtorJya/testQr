@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Datasurah extends Model
 {
     use HasFactory;
+ 
     public function arabic()
     {
         return $this->hasMany(Arabic::class);
     }
-    
 }
