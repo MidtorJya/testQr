@@ -28,23 +28,27 @@ class QuranController extends Controller
     }
 
     public function arabic($id)
-    {
+    {  //$datasurah = Datasurah::with('tafseer')->find($id);
         $arabics = Datasurah::with('arabic.thais')->find($id);
        // ->firstOrFail();
 
        // $plucked = $ayats->pluck('ayat.text', 'trans.text');
         
-        //dd($arabics->toArray());
+        dd($arabics->toArray());
       
-        //return dd($arabics);
-      
+       //return dd($datasurahs);
+       //return dd($arabics);
        //return view('test.detail', [
         //dd($ayats->toArray());
         //'ayats' => $ayats]);
-       
-      return view('quran.detail',compact('arabics'));
-        //    'ayats' => $ayats
-        //]);
+    
+      return view('quran.detail',compact('arabics','datasurah'));
+    //   [
+    //    //'datasurahs' => $datasurahs,
+    //    'arabics' => $arabics
+    // ]);
+    //     //    'ayats' => $ayats
+    //     //]);
     }
 
 
@@ -78,6 +82,8 @@ class QuranController extends Controller
         //    'ayats' => $ayats
         //]);
     }
+
+
 
 
     /**

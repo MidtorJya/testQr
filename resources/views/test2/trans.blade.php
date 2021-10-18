@@ -18,6 +18,7 @@
               dd {{$thais}}
                    @foreach($thais->thai as $thai )
                    <tr>
+                   <td> {{$tahis->th_name}}</td>
                    <td> {{$tahis->arabic_id}}</td>
                     <td> {{$thai->ayat}}</td>
                     <td> {{$thai->text}}</td>

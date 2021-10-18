@@ -30,7 +30,7 @@ class TestController extends Controller
 
        // $plucked = $ayats->pluck('ayat.text', 'trans.text');
         
-        dd($ayats->toArray());
+        //dd($ayats->toArray());
        // return dd($ayats);
       
        //return view('test.detail', [
@@ -42,6 +42,13 @@ class TestController extends Controller
         //]);
     }
 
+
+    public function home()
+    {
+      
+
+        return view('quran.home');
+    }
     /**
      * Show the form for creating a new resource.
      *

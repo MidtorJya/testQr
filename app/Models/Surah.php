@@ -13,4 +13,8 @@ class Surah extends Model
     {
         return $this->hasMany(Ayat::class);
     }
+    // public function scopePublished($query)
+    // {
+    //     return $query->whereNotNull($query->qualifyColumn('updated_at'));
+    // }
 }

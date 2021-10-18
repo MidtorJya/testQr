@@ -12,6 +12,7 @@
                         <th>id</th>
                         <th>Text</th>
                         <th>Translation</th>
+                        <th>Audio</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,7 +23,7 @@
                     <td> {{$arabic->ayat}}</td>
                     <td> {{$arabic->text}}</td>
                     <td> {{$arabic->thais->text}}</td>
-                    
+                    <td> {{$arabic->thais->audio}}</td>
                    
                    </tr>
                    @endforeach
