@@ -1,40 +1,74 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laravel Search with pagination</title>
+    <link rel="stylesheet" href="{{ asset('bootstrap-3.1.1/css/bootstrap.min.css')}}">
+</head>
+<body>
+    <div class="container">
+       <div class="row">
+          <div class="col-md-8" style="margin-top:40px">
+             <h4>Search Everything</h4><hr>
+             <form action="{{ route('web.find') }}" method="GET">
+        
+                <div class="form-group">
+                   <label for="">Enter keyword</label>
+                   <input type="text" class="form-control" name="query" placeholder="Search here....." value="{{ request()->input('query') }}">
+                   <span class="text-danger">@error('query'){{ $message }} @enderror</span>
+                </div>
+                <div class="form-group">
+                 <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+             </form>
+             <br>
+             <br>
+             <hr>
+             <br>
+             @if(isset($countries))
 
-        <title>Search Demo</title>
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    </head>
+               <table class="table table-hover">
+                   <thead>
+                       <tr>
+                           <th>ซูเราะห์ที่</th>
+                           <th>ชื่อ</th>
+                           <th>ภาษาอาหรับ</th>
+                           <th>คำแปล</th>
+                           <th>อายะห์ที่</th>
+                       
+                       </tr>
+                   </thead>
+                   <tbody>
+                       
+                       @if(count($countries) > 0)
+                           @foreach($countries as $countrie)
+                              <tr>
+                                  <td>{{ $countrie->id}}</td>
+                                  <td>{{ $countrie->th_name }}</td>
+                              
+                                  <td>{{ $countrie->arabic_text }}</td>
+                                  <td>{{ $countrie->text }}</td>
+                                  <td>{{ $countrie->arabic_id}}</td>
+                             
+                              </tr>
+                           @endforeach
+                       @else
 
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:pt-0">
-            <div class="max-w-6xl w-full mx-auto sm:px-6 lg:px-8 sm:py-6 lg:py-8">
-                <form>
-                    <div class="flex flex-wrap -mx-3 mb-6">
-                        <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="term">
-                                Search
-                            </label>
-                            <input value="{{ $term }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="term" name="term" type="text">
-                        </div>
-                    </div>
-                </form>
+                          <tr><td>No result found!</td></tr>
+                       @endif
+                   </tbody>
+               </table>
 
-                <table class="table-auto w-full mb-6">
-                    <tbody>
-                        @foreach($results as $result)
-                            <x-dynamic-component
-                                :component="class_basename($result)"
-                                :data="$result"
-                             />
-                        @endforeach
-                    </tbody>
-                </table>
+               <div class="pagination-block">
+                   <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
+                   {{  $countries->links()}} 
+               </div>
 
-            
-            </div>
-        </div>
-    </body>
+             @endif
+          </div>
+       </div>
+    </div>
+</body>
 </html>

@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Arabic extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'arabic_id', 'text'
+    ];
     public function datasurah()
     {
         return $this->belongsTo('App/Models/Datasurah');

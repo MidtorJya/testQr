@@ -38,11 +38,17 @@ Route::get('/test2', [TeController::class, 'translate']);
 Route::get('/arabic/{datasurah}', [TeController::class, 'arabic'])->name('arabic');
 
 //Route::get('/', [SearchController::class, 'search']);
-Route::get('/', SearchController::class);
+//Route::get('/', SearchController::class);
 
 Route::get('/demo/home', [DemoController::class, 'index']);
 Route::get('/demo/detail', [DemoController::class, 'detail'])->name('detail');
 Route::get('/demo/tafseerhome', [DemoController::class, 'tafseer'])->name('tafseer');
 //Route::get('/quran/search', [HomeController::class, 'search'])->name('quran.search');
+
+//simple search
+Route::get('/search',[SearchController::class, 'search'])->name('web.search');
+Route::get('/find',[SearchController::class, 'find'])->name('web.find');
+
+Route::get('/join_table', [DemoController::class, 'join']);
 
 

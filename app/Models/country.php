@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Thai extends Model
+class country extends Model
 {
     use HasFactory;
+
+    protected $table = 'country';
+
     protected $fillable = [
-        'arabic_id', 'text','tafseer'
+    	'country_name'
     ];
-    public function thais()
-    {
-        return $this->belongsTo('App/Models/Arabic');
-    }
 }
